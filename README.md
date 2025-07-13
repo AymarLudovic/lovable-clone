@@ -12,71 +12,19 @@ Vibe is a modern AI-powered code generation platform that transforms natural lan
 
 ## ✨ Key Features
 
-### 🤖 AI-Powered Code Generation
-
-- **Advanced AI Agent**: Powered by OpenAI GPT-4 for intelligent code generation
-- **Natural Language Processing**: Describe your app idea in plain English
-- **Production-Ready Code**: Generates complete, deployable Next.js applications
-- **Context-Aware**: Maintains conversation history for iterative development
-
-### 🎯 Pre-Built Templates
-
-- **Netflix Clone**: Streaming platform with hero banners and movie sections
-- **Admin Dashboard**: Complete dashboard with charts, tables, and analytics
-- **Kanban Board**: Drag-and-drop task management with local state
-- **File Manager**: Full-featured file explorer with CRUD operations
-- **YouTube Clone**: Video platform with thumbnails and category sidebar
-- **E-commerce Store**: Shopping platform with cart and product management
-- **Airbnb Clone**: Property listings with filters and detailed views
-- **Spotify Clone**: Music player with playlists and playback controls
-
-### 🔧 Development Features
-
-- **Live Preview**: Instant preview of generated applications in secure sandboxes
-- **Code Explorer**: Browse and examine generated source code
-- **File Management**: Complete file tree with syntax highlighting
-- **Real-time Updates**: Live reload and instant feedback
-- **Responsive Design**: Mobile-first, accessible UI components
-
-### 👥 User Management
-
-- **Authentication**: Secure user authentication via Clerk
-- **Project Management**: Save, organize, and revisit your projects
+- **AI-Powered Code Generation**: OpenAI GPT-4 powered agent that understands natural language
+- **Live Preview**: Instant preview of generated applications in secure E2B sandboxes
+- **Pre-Built Templates**: Netflix, YouTube, Airbnb, Spotify clones and more
+- **Code Explorer**: Browse and examine generated source code with syntax highlighting
+- **Project Management**: Save, organize, and iterate on your projects
+- **Authentication**: Secure user management with Clerk
 - **Usage Tracking**: Credit-based system with free and pro tiers
-- **Real-time Collaboration**: Message-based interaction with AI agent
-
-### 🎨 Modern UI/UX
-
-- **Dark Mode Support**: Beautiful dark and light themes
-- **Responsive Design**: Works seamlessly on all devices
-- **Accessible Components**: Built with accessibility in mind
-- **Smooth Animations**: Polished interactions and transitions
 
 ## 🚀 Tech Stack
 
-### Frontend
-
-- **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn/UI + Radix UI
-- **State Management**: React Query (TanStack Query)
-- **Forms**: React Hook Form with Zod validation
-
-### Backend
-
-- **API Layer**: tRPC for type-safe APIs
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: Clerk
-- **Background Jobs**: Inngest for async processing
-- **AI Integration**: OpenAI GPT-4 via Inngest Agent Kit
-
-### Infrastructure
-
-- **Code Execution**: E2B sandboxes for secure code execution
-- **File Storage**: Database-backed file management
-- **Rate Limiting**: Credit-based usage tracking
-- **Deployment**: Vercel-ready configuration
+**Frontend**: Next.js 15, TypeScript, Tailwind CSS, Shadcn/UI, React Query
+**Backend**: tRPC, PostgreSQL, Prisma ORM, Clerk Auth
+**AI & Jobs**: OpenAI GPT-4, Inngest, E2B sandboxes
 
 ## 📋 Prerequisites
 
@@ -182,17 +130,8 @@ npx prisma migrate reset
 vibe/
 ├── src/
 │   ├── app/                    # Next.js App Router pages
-│   │   ├── (home)/            # Home page and auth routes
-│   │   ├── projects/          # Project-specific pages
-│   │   └── api/               # API routes (tRPC, Inngest)
 │   ├── components/            # Reusable UI components
-│   │   ├── ui/               # Shadcn/UI components
-│   │   └── ...               # Custom components
 │   ├── modules/              # Feature-based modules
-│   │   ├── home/             # Home page functionality
-│   │   ├── projects/         # Project management
-│   │   ├── messages/         # Messaging system
-│   │   └── usage/            # Usage tracking
 │   ├── lib/                  # Utility functions
 │   ├── hooks/                # Custom React hooks
 │   ├── inngest/              # Background job functions
@@ -206,12 +145,12 @@ vibe/
 
 ### Creating Your First Project
 
-1. **Sign up/Sign in** to your Vibe account
-2. **Describe your app** in the main input field
-3. **Choose a template** or write a custom description
-4. **Submit** and watch the AI generate your application
-5. **Preview** the live result in the embedded sandbox
-6. **Explore** the generated code using the file explorer
+1. Sign up/Sign in to your Vibe account
+2. Describe your app in the main input field
+3. Choose a template or write a custom description
+4. Submit and watch the AI generate your application
+5. Preview the live result in the embedded sandbox
+6. Explore the generated code using the file explorer
 
 ### Example Prompts
 
@@ -220,37 +159,10 @@ vibe/
 - "Build a restaurant website with menu and online ordering"
 - "Create a fitness tracker with workout logging and progress charts"
 
-### Advanced Features
-
-- **Iterative Development**: Continue conversations to refine your app
-- **Code Exploration**: Browse generated files and understand the structure
-- **Live Preview**: Test your application in real-time
-- **Project Management**: Save and organize multiple projects
-
-## 🔒 Authentication & Authorization
-
-Vibe uses Clerk for authentication with the following features:
-
-- **Multiple Sign-in Methods**: Email, social logins
-- **User Management**: Profile management and preferences
-- **Plan-based Access**: Free and Pro tier limitations
-- **Secure Sessions**: JWT-based authentication
-
 ## 💳 Usage & Billing
 
-### Free Tier
-
-- 2 credits per month
-- Basic AI generation
-- Standard templates
-- Community support
-
-### Pro Tier
-
-- 100 credits per month
-- Priority generation
-- Advanced templates
-- Premium support
+**Free Tier**: 2 credits per month
+**Pro Tier**: 100 credits per month with priority generation
 
 ## 🚀 Deployment
 
@@ -274,85 +186,19 @@ docker build -t vibe .
 docker run -p 3000:3000 vibe
 ```
 
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Commit changes**: `git commit -m 'Add amazing feature'`
-4. **Push to branch**: `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Use ESLint and Prettier for code formatting
-- Write comprehensive tests for new features
-- Update documentation for any API changes
-- Follow semantic commit messages
-
-## 📝 API Documentation
-
-### tRPC Routes
-
-- `projects.*` - Project management
-- `messages.*` - Messaging system
-- `usage.*` - Usage tracking
-
-### Inngest Functions
-
-- `code-agent/run` - Main AI code generation
-- Background processing for sandbox management
-
 ## 🐛 Troubleshooting
-
-### Common Issues
 
 **Database Connection Issues**
 
 - Verify DATABASE_URL is correct
 - Ensure PostgreSQL is running
-- Check network connectivity
 
 **AI Generation Failures**
 
 - Verify OpenAI API key is valid
 - Check API usage limits
-- Ensure proper error handling
 
 **Sandbox Issues**
 
 - Verify E2B API key
 - Check sandbox quotas
-- Review security settings
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [OpenAI](https://openai.com) for GPT-4 AI capabilities
-- [E2B](https://e2b.dev) for secure code execution sandboxes
-- [Inngest](https://inngest.com) for reliable background job processing
-- [Clerk](https://clerk.com) for authentication infrastructure
-- [Vercel](https://vercel.com) for seamless deployment platform
-
-## 📞 Support
-
-- **Documentation**: [docs.vibe.dev](https://docs.vibe.dev)
-- **Community**: [discord.gg/vibe](https://discord.gg/vibe)
-- **Issues**: [GitHub Issues](https://github.com/your-username/vibe/issues)
-- **Email**: support@vibe.dev
-
----
-
-<div align="center">
-  <p>Made with ❤️ by the Vibe team</p>
-  <p>
-    <a href="https://vibe.dev">Website</a> •
-    <a href="https://twitter.com/vibe_dev">Twitter</a> •
-    <a href="https://github.com/your-username/vibe">GitHub</a>
-  </p>
-</div>
