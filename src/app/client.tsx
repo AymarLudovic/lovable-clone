@@ -1,20 +1,36 @@
 "use client";
 
-import { useTRPC } from "@/trpc/client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Client = () => {
-  const trpc = useTRPC();
-
-  const createAI = trpc.ai.createAI.useMutation();
+  const [data, setData] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Appelle la mutation dès que le composant monte
-    createAI.mutate({ text: "Harry PREFETCH" });
+    // Simulation d'une récupération de données
+    const fetchData = async () => {
+      try {
+        // Exemple: fetch depuis une API ou calcul local
+        // const res = await fetch("/api/some-endpoint");
+        // const json = await res.json();
+        // setData(JSON.stringify(json));
+
+        // Ici juste un mock
+        setData("Résultat du client TSX simple");
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  if (createAI.isPending) return <div>Loading...</div>;
-  if (createAI.error) return <div>Error: {createAI.error.message}</div>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
-  return <div>{JSON.stringify(createAI.data)}</div>;
+  return <div>{data}</div>;
 };
+  
