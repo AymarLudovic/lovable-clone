@@ -1,15 +1,20 @@
 "use client";
 
 import { useTRPC } from "@/trpc/client";
+import { useEffect } from "react";
 
 export const Client = () => {
   const trpc = useTRPC();
-  const { data, isLoading, error } = trpc.ai.createAI.useQuery(
-    { text: "Harry PREFETCH" }
-  );
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  const createAI = trpc.ai.createAI.useMutation();
 
-  return <div>{JSON.stringify(data)}</div>;
+  useEffect(() => {
+    // Appelle la mutation dès que le composant monte
+    createAI.mutate({ text: "Harry PREFETCH" });
+  }, []);
+
+  if (createAI.isPending) return <div>Loading...</div>;
+  if (createAI.error) return <div>Error: {createAI.error.message}</div>;
+
+  return <div>{JSON.stringify(createAI.data)}</div>;
 };
