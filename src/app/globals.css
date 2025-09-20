@@ -174,8 +174,10 @@
 
 @layer base {
     * {
-        @apply border-border outline-ring/50;
+    border: 1px solid var(--border);
+    outline: 1px solid var(--ring);
     }
+    
     body {
         @apply bg-background text-foreground;
     }
